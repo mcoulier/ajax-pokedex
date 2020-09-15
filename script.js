@@ -24,8 +24,17 @@
         fetch("https://pokeapi.co/api/v2/pokemon-species/" + userInput + "/")
             .then(response => response.json())
             .then(evoData => {
+
+                let namePoke = evoData.evolves_from_species.name;
                 document.getElementById("evolution").innerHTML = evoData.evolves_from_species.name;
-                document.getElementById("evoImage").innerHTML =
+
+                fetch("https://pokeapi.co/api/v2/pokemon/" + namePoke + "/")
+                    .then(response => response.json())
+                    .then(evoData => {
+                        console.log(evoData)
+                        document.getElementById("").setAttribute("src", evoData.sprites.front_default);
+
+                })
             })
     })
 })();
