@@ -3,25 +3,38 @@
     document.getElementById("searchBtn").addEventListener("click", ()=> {
 
         let userInput = document.getElementById("search").value;
+        let moveOne = (Math.floor(Math.random() * 40) + 1)
+        let moveTwo = (Math.floor(Math.random() * 40) + 1)
+        let moveThree = (Math.floor(Math.random() * 40) + 1)
+        let moveFour = (Math.floor(Math.random() * 40) + 1)
+
+        function randomMove (){
+
+        }
 
         fetch("https://pokeapi.co/api/v2/pokemon/" + userInput + "/")
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                document.getElementById("pokemonID").innerHTML = `${data.id}`;
-                document.getElementById("img").setAttribute("src", `${data.sprites.front_default}`)
-                document.getElementById("pokemonName").innerHTML = `${data.name}`;
+                console.log(data)
 
             });
 
-        function getMoves(moves, ) {
-            moves.forEach(function (move) {
-                let pokemonMoves = document.getElementById("pokemonMoves").innerText = move['moves']
-
-            })
+        function getPokemon(){
+            document.getElementById("pokemonID").innerHTML = data.id;
+            document.getElementById("img").setAttribute("src",data.sprites.front_default);
+            document.getElementById("pokemonName").innerHTML = data.name;
+            document.getElementById("moveOne").innerHTML = data.moves[moveOne].move.name;
+            document.getElementById("moveTwo").innerHTML = data.moves[moveTwo].move.name;
+            document.getElementById("moveThree").innerHTML = data.moves[moveThree].move.name;
+            document.getElementById("moveFour").innerHTML = data.moves[moveFour].move.name;
         }
 
+        fetch("https://pokeapi.co/api/v2/evolution-chain/" + userInput + "/")
+            .then(response => response.json())
+            .then(evoData => {
+                console.log(evoData)
+                document.getElementById("evolution").innerHTML = evoData.chain.is_baby;
 
+            })
     })
-
 })();
