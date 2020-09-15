@@ -21,11 +21,11 @@
                 document.getElementById("moveFour").innerHTML = data.moves[moveFour].move.name;
             });
 
-        fetch("https://pokeapi.co/api/v2/pokemon-species/" + data.id + "/")
+        fetch("https://pokeapi.co/api/v2/pokemon-species/" + userInput + "/")
             .then(response => response.json())
             .then(evoData => {
                 console.log(evoData)
-                document.getElementById("evolution").innerHTML = evoData.chain.is_baby;
+                document.getElementById("evolution").innerHTML = evoData.evolves_from_species.name;
             })
     })
 })();
