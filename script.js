@@ -10,24 +10,21 @@
 
         function randomMove (){
 
+
         }
 
         fetch("https://pokeapi.co/api/v2/pokemon/" + userInput + "/")
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-
+                document.getElementById("pokemonID").innerHTML = data.id;
+                document.getElementById("img").setAttribute("src",data.sprites.front_default);
+                document.getElementById("pokemonName").innerHTML = data.name;
+                document.getElementById("moveOne").innerHTML = data.moves[moveOne].move.name;
+                document.getElementById("moveTwo").innerHTML = data.moves[moveTwo].move.name;
+                document.getElementById("moveThree").innerHTML = data.moves[moveThree].move.name;
+                document.getElementById("moveFour").innerHTML = data.moves[moveFour].move.name;
             });
-
-        function getPokemon(){
-            document.getElementById("pokemonID").innerHTML = data.id;
-            document.getElementById("img").setAttribute("src",data.sprites.front_default);
-            document.getElementById("pokemonName").innerHTML = data.name;
-            document.getElementById("moveOne").innerHTML = data.moves[moveOne].move.name;
-            document.getElementById("moveTwo").innerHTML = data.moves[moveTwo].move.name;
-            document.getElementById("moveThree").innerHTML = data.moves[moveThree].move.name;
-            document.getElementById("moveFour").innerHTML = data.moves[moveFour].move.name;
-        }
 
         fetch("https://pokeapi.co/api/v2/evolution-chain/" + userInput + "/")
             .then(response => response.json())
