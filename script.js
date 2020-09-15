@@ -25,16 +25,15 @@
             .then(response => response.json())
             .then(evoData => {
 
-                let namePoke = evoData.evolves_from_species.name;
                 document.getElementById("evolution").innerHTML = evoData.evolves_from_species.name;
+
+                let namePoke = evoData.evolves_from_species.name;
 
                 fetch("https://pokeapi.co/api/v2/pokemon/" + namePoke + "/")
                     .then(response => response.json())
-                    .then(evoData => {
-                        console.log(evoData)
-                        document.getElementById("").setAttribute("src", evoData.sprites.front_default);
-
-                })
+                    .then(data => {
+                        document.getElementById("evoImage").setAttribute("src",data.sprites.front_default);
+                    })
             })
     })
 })();

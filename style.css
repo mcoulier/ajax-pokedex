@@ -11,7 +11,7 @@ body{
 .leftSide{
     display: inline-block;
     position: relative;
-    background: linear-gradient(to right,#DC0A2D,#DC0A2D, tomato,#DC0A2D,#89061C 90%);
+    background: linear-gradient(to right,#DC0A2D,#DC0A2D, #ff6347,#DC0A2D,#89061C 90%);
     margin-top: 5vh;
     margin-bottom:5vh;
     border-radius: 5vh 2vh 1vh 5vh;
@@ -656,6 +656,11 @@ body{
     position: absolute;
     bottom: -.2vh;
 }
+
+#evoImage{
+    position: relative;
+}
+
 .SpD{
     background: DarkCyan;
     border: .1vh solid gray;
