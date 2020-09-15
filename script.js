@@ -10,7 +10,6 @@
 
         function randomMove (){
 
-
         }
 
         fetch("https://pokeapi.co/api/v2/pokemon/" + userInput + "/")
@@ -26,12 +25,11 @@
                 document.getElementById("moveFour").innerHTML = data.moves[moveFour].move.name;
             });
 
-        fetch("https://pokeapi.co/api/v2/evolution-chain/" + userInput + "/")
+        fetch("https://pokeapi.co/api/v2/evolution-chain/" + evoData.id + "/")
             .then(response => response.json())
             .then(evoData => {
                 console.log(evoData)
                 document.getElementById("evolution").innerHTML = evoData.chain.is_baby;
-
             })
     })
 })();
