@@ -426,7 +426,7 @@ body{
     text-align: left;
     width:45vh;
     font-family: 'VT323', monospace;
-    font-size: 2vh;
+    font-size: 3vh;
     color: gray;
     border-radius: .5vh;
     z-index:1;
@@ -659,4 +659,5 @@ body{
 
 ul{
     padding-top: 15px;
+    font-size: 2.5vh;
 }

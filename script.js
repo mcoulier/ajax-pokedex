@@ -8,10 +8,6 @@
         let moveThree = (Math.floor(Math.random() * 40) + 1)
         let moveFour = (Math.floor(Math.random() * 40) + 1)
 
-        function randomMove (){
-
-        }
-
         fetch("https://pokeapi.co/api/v2/pokemon/" + userInput + "/")
             .then(response => response.json())
             .then(data => {
@@ -25,7 +21,7 @@
                 document.getElementById("moveFour").innerHTML = data.moves[moveFour].move.name;
             });
 
-        fetch("https://pokeapi.co/api/v2/evolution-chain/" + evoData.id + "/")
+        fetch("https://pokeapi.co/api/v2/pokemon-species/" + data.id + "/")
             .then(response => response.json())
             .then(evoData => {
                 console.log(evoData)
